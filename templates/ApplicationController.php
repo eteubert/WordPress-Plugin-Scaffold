@@ -15,7 +15,9 @@ if (!class_exists('ApplicationController')) {
       // register ajax actions
       $actions = array('index', 'new', 'create', 'delete', 'update');
       foreach ($actions as $action) {
+        // fired if not logged in
         add_action("wp_ajax_nopriv_$action-$this->controller_name", array(&$this, "call_$action"));
+        // fired if logged in
         add_action("wp_ajax_$action-$this->controller_name", array(&$this, "call_$action"));      
       }
     }
