@@ -56,3 +56,9 @@ if (!function_exists('<%= name.slug %>_add_default_view_directory')) {
   }
 }
 add_filter('app-view-directories', '<%= name.slug %>_add_default_view_directory');
+
+<% unless Choice.choices.no_setup %>
+register_activation_hook(__FILE__, '<%= name.slug %>_activate');
+register_deactivation_hook(__FILE__, '<%= name.slug %>_deactivate');
+register_uninstall_hook(__FILE__, '<%= name.slug %>_uninstall');
+<% end %>

@@ -37,6 +37,11 @@ Choice.options do
     desc 'The name of the plugin'
   end
   
+  option :no_setup do
+    long '--no-setup'
+    desc 'Disable creation and registration of setup hooks'
+  end
+  
 end
 
 name = Choice.choices.name
@@ -64,10 +69,12 @@ main.write(template.result)
 main.close
 
 # render setup template
-template = ERB.new File.read(BASEDIR + '/templates/setup.php')
-main = File.new("setup.php", "w")
-main.write(template.result)
-main.close
+unless Choice.choices.no_setup
+  template = ERB.new File.read(BASEDIR + '/templates/setup.php')
+  main = File.new("setup.php", "w")
+  main.write(template.result)
+  main.close
+end
 
 # copy application controller
 FileUtils.copy BASEDIR + '/templates/ApplicationController.php', 'app/controllers/'
