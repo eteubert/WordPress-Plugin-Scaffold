@@ -53,7 +53,7 @@ FileUtils.makedirs([
 ])
 
 # touch files which will be empty
-["public/css/#{name.slug}.css", "public/javascript/#{name.slug}.css"].each do |f|
+["README", "public/css/#{name.slug}.css", "public/javascript/#{name.slug}.css"].each do |f|
   FileUtils.touch f
 end
 
