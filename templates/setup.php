@@ -1,7 +1,7 @@
 <?php
-/*
-  Create/Drop tables on activation/deactivation/deletion
-*/
+// ==========================================
+// = Activation/Deactivation/Deletion Hooks =
+// ==========================================
 
 if (!function_exists('<%= name.slug %>_activate')) {
   function <%= name.slug %>_activate()
