@@ -1,5 +1,6 @@
 require 'choice'
 require 'erb'
+require 'fileutils'
 
 BASEDIR = File.dirname(__FILE__)
 
@@ -40,6 +41,23 @@ end
 
 name = Choice.choices.name
 
+# create dirs
+FileUtils.makedirs([
+  'app/controllers',
+  'app/views',
+  'languages',
+  'public',
+  'public/css',
+  'public/images',
+  'public/javascript',
+])
+
+# touch files which will be empty
+["public/css/#{name.slug}.css", "public/javascript/#{name.slug}.css"].each do |f|
+  FileUtils.touch f
+end
+
+# render templates
 template = ERB.new File.read(BASEDIR + '/templates/main.rb')
 
 main = File.new("#{name.slug}.php", "w")
