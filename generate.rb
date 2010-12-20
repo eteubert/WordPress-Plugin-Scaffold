@@ -58,8 +58,11 @@ FileUtils.makedirs([
 end
 
 # render templates
-template = ERB.new File.read(BASEDIR + '/templates/main.rb')
+template = ERB.new File.read(BASEDIR + '/templates/plugin_name.rb')
 
 main = File.new("#{name.slug}.php", "w")
 main.write(template.result)
 main.close
+
+# copy application controller
+FileUtils.copy BASEDIR + '/templates/ApplicationController.php', 'app/controllers/'
