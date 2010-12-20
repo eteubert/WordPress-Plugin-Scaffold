@@ -58,7 +58,7 @@ FileUtils.makedirs([
 end
 
 # render main template
-template = ERB.new File.read(BASEDIR + '/templates/plugin_name.rb')
+template = ERB.new File.read(BASEDIR + '/templates/plugin_name.php')
 main = File.new("#{name.slug}.php", "w")
 main.write(template.result)
 main.close
