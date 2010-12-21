@@ -27,9 +27,9 @@ if (!class_exists('ApplicationController')) {
      *
      * template method for create calls
      */
-    public function call_index()
+    public function call_index($arg = null)
     {
-      $this->index();
+      $this->index($arg);
       $this->render('index');
     }
     
@@ -38,9 +38,9 @@ if (!class_exists('ApplicationController')) {
      *
      * template method for new calls
      */
-    public function call_new()
+    public function call_new($arg = null)
     {
-      $this->newForm();
+      $this->newForm($arg);
       $this->render('new');
     }
 
@@ -49,9 +49,9 @@ if (!class_exists('ApplicationController')) {
      *
      * template method for create calls
      */
-    public function call_create()
+    public function call_create($arg = null)
     {
-      $this->create();
+      $this->create($arg);
       $this->render('create');
     }
 
@@ -60,9 +60,9 @@ if (!class_exists('ApplicationController')) {
      *
      * template method for delete calls
      */
-    public function call_delete()
+    public function call_delete($arg = null)
     {
-      $this->delete();
+      $this->delete($arg);
       $this->render('delete');
     }
 
@@ -71,9 +71,9 @@ if (!class_exists('ApplicationController')) {
      *
      * template method for update calls
      */
-    public function call_update()
+    public function call_update($arg = null)
     {
-      $this->update();
+      $this->update($arg);
       $this->render('update');
     }
 
